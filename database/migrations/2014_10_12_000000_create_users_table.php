@@ -14,13 +14,33 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            /*$table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->timestamps();*/
+            
+            $table->bigIncrements('id')->comment('comment');
+            $table->string('name')->index()->comment('comment');
+            $table->string('email')->index()->unique()->comment('comment');
+            $table->timestamp('email_verified_at')->nullable()->comment('comment');
+            $table->string('password')->comment('comment');
+            $table->rememberToken()->comment('comment');
             $table->timestamps();
+            $table->boolean('is_visible')->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('status_id')->default(null)->nullable()->comment('comment');
+            //$table->softDeletes();
+            $table->text('facebook_link')->default(null)->nullable()->comment('comment');
+            $table->text('twitter_link')->default(null)->nullable()->comment('comment');
+            $table->text('linkedin_link')->default(null)->nullable()->comment('comment');
+            $table->text('short_title')->default(null)->nullable()->comment('comment');
+            $table->text('biography')->default(null)->nullable()->comment('comment');
+            $table->text('dir_url')->default(null)->nullable()->comment('comment');
+            $table->text('image_url')->default(null)->nullable()->comment('comment');
+            
+            //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });
     }
 

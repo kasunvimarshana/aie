@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => 'role:admin'], function() {
+    Route::get('/admin', function() {
+        return 'Welcome Admin';
+    });
+});
