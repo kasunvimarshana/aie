@@ -37,8 +37,8 @@ class CreateUsersTable extends Migration
             $table->text('linkedin_link')->default(null)->nullable()->comment('comment');
             $table->text('short_title')->default(null)->nullable()->comment('comment');
             $table->text('biography')->default(null)->nullable()->comment('comment');
-            $table->text('dir_url')->default(null)->nullable()->comment('comment');
-            $table->text('image_url')->default(null)->nullable()->comment('comment');
+            $table->text('dir_uri')->default(null)->nullable()->comment('uniform resource identifier');
+            $table->text('image_uri')->default(null)->nullable()->comment('uniform resource identifier');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });

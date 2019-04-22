@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatusesTable extends Migration
+class CreateSourceTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('statuses', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('comment');
+        Schema::create('source_types', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
             
-            $table->boolean('is_visible')->default(null)->nullable()->change()->comment('comment')->charset('utf8');
+            //$table->softDeletes();
+            $table->boolean('is_visible')->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('status_id')->default(null)->nullable()->comment('comment');
             $table->string('name')->index()->unique()->comment('comment');
             $table->text('icon_uri')->default(null)->nullable()->comment('uniform resource identifier');
-            //$table->softDeletes();
+            
+            //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });
     }
 
@@ -31,8 +34,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        //Schema::enableForeignKeyConstraints();
-        //Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('source_types');
     }
 }

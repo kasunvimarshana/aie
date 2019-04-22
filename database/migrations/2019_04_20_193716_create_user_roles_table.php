@@ -17,8 +17,8 @@ class CreateUserRolesTable extends Migration
             //$table->bigIncrements('id');
             //$table->timestamps();
             
-            $table->unsignedBigInteger('user_id')->unsigned()->index();
-            $table->unsignedBigInteger('role_id')->unsigned()->index();
+            $table->unsignedBigInteger('user_id')->unsigned()->index()->comment('comment');
+            $table->unsignedBigInteger('role_id')->unsigned()->index()->comment('comment');
             //FOREIGN KEY CONSTRAINTS
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
