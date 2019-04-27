@@ -29,16 +29,18 @@ class CreateUsersTable extends Migration
             $table->string('password')->comment('comment');
             $table->rememberToken()->comment('comment');
             $table->timestamps();
-            $table->boolean('is_visible')->default(null)->nullable()->comment('comment');
-            $table->unsignedBigInteger('status_id')->default(null)->nullable()->comment('comment');
+            $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
             //$table->softDeletes();
             $table->text('facebook_link')->default(null)->nullable()->comment('comment');
             $table->text('twitter_link')->default(null)->nullable()->comment('comment');
             $table->text('linkedin_link')->default(null)->nullable()->comment('comment');
-            $table->text('short_title')->default(null)->nullable()->comment('comment');
+            $table->mediumText('short_title')->default(null)->nullable()->comment('comment');
             $table->text('biography')->default(null)->nullable()->comment('comment');
             $table->text('dir_uri')->default(null)->nullable()->comment('uniform resource identifier');
             $table->text('image_uri')->default(null)->nullable()->comment('uniform resource identifier');
+            $table->text('stripe_public_key')->default(null)->nullable()->comment('comment');
+            $table->text('stripe_secret_key')->default(null)->nullable()->comment('comment');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });

@@ -17,9 +17,9 @@ class CreateStatusesTable extends Migration
             $table->bigIncrements('id')->comment('comment');
             $table->timestamps();
             
-            $table->boolean('is_visible')->default(null)->nullable()->change()->comment('comment')->charset('utf8');
+            $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
             $table->string('name')->index()->unique()->comment('comment');
-            $table->text('icon_uri')->default(null)->nullable()->comment('uniform resource identifier');
+            $table->text('icon_uri')->default(null)->nullable()->comment('uniform resource identifier')->charset('utf8')->change();
             //$table->softDeletes();
         });
     }

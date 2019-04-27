@@ -18,8 +18,15 @@ class CreateCoursesTable extends Migration
             $table->timestamps();
             
             //$table->softDeletes();
-            $table->boolean('is_visible')->default(null)->nullable()->comment('comment');
-            $table->unsignedBigInteger('status_id')->default(null)->nullable()->comment('comment');
+            $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
+            $table->text('title')->default(null)->nullable()->comment('comment');
+            $table->mediumText('short_description')->default(null)->nullable()->comment('comment');
+            $table->text('description')->default(null)->nullable()->comment('comment');
+            $table->boolean('is_free')->index()->default(null)->nullable()->comment('comment');
+            $table->decimal('price')->index()->default(null)->nullable()->comment('comment');
+            $table->boolean('has_discount')->index()->default(null)->nullable()->comment('comment');
+            $table->decimal('discount')->index()->default(null)->nullable()->comment('comment');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });

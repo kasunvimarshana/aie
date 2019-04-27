@@ -18,10 +18,17 @@ class CreateCourseLessonsTable extends Migration
             $table->timestamps();
             
             //$table->softDeletes();
-            $table->boolean('is_visible')->default(null)->nullable()->comment('comment');
-            $table->unsignedBigInteger('status_id')->default(null)->nullable()->comment('comment');
+            $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
+            $table->text('title')->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('section_id')->index()->default(null)->nullable()->comment('comment');
+            //$table->unsignedBigInteger('resource_id')->index()->default(null)->nullable()->comment('comment');
+            $table->text('summary')->default(null)->nullable()->comment('comment');
+            $table->text('thumbnail_uri')->default(null)->nullable()->comment('uniform resource identifier');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
+            //$table->foreign('section_id')->references('id')->on('course_sections')->onUpdate('cascade');
+            //$table->foreign('resource_id')->references('id')->on('user_resources')->onUpdate('cascade');
         });
     }
 

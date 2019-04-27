@@ -18,8 +18,8 @@ class CreateSearchKeywordsTable extends Migration
             $table->timestamps();
             
             //$table->softDeletes();
-            $table->boolean('is_visible')->default(null)->nullable()->comment('comment');
-            $table->unsignedBigInteger('status_id')->default(null)->nullable()->comment('comment');
+            $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
             $table->morphs('searchable');
             $table->string('keyword')->index()->comment('comment');
             

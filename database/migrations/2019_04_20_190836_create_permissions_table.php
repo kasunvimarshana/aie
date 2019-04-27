@@ -17,8 +17,8 @@ class CreatePermissionsTable extends Migration
             $table->bigIncrements('id')->comment('comment');
             $table->timestamps();
             
-            $table->string('slug')->comment('comment'); //edit-posts
-            $table->string('name')->comment('comment'); // edit posts
+            $table->string('slug')->index()->comment('comment'); //edit-posts
+            $table->string('name')->index()->comment('comment'); // edit posts
         });
     }
 

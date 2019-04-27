@@ -17,8 +17,8 @@ class CreateRolesTable extends Migration
             $table->bigIncrements('id')->comment('comment');
             $table->timestamps();
             
-            $table->string('slug')->comment('comment'); //web-developer
-            $table->string('name')->comment('comment'); //Web Developer
+            $table->string('slug')->index()->comment('comment'); //web-developer
+            $table->string('name')->index()->comment('comment'); //Web Developer
         });
     }
 

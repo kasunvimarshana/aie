@@ -17,8 +17,8 @@ class CreateUserPermissionsTable extends Migration
             //$table->bigIncrements('id');
             //$table->timestamps();
             
-            $table->unsignedBigInteger('user_id')->unsigned()->index()->comment('comment');
-            $table->unsignedBigInteger('permission_id')->unsigned()->index()->comment('comment');
+            $table->unsignedBigInteger('user_id')->index()->unsigned()->comment('comment');
+            $table->unsignedBigInteger('permission_id')->index()->unsigned()->comment('comment');
             //FOREIGN KEY CONSTRAINTS
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('permission_id')->references('id')->on('permissions')->onUpdate('cascade')->onDelete('cascade');
