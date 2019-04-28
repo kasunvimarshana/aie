@@ -27,6 +27,7 @@ class CreateCoursesTable extends Migration
             $table->decimal('price')->index()->default(null)->nullable()->comment('comment');
             $table->boolean('has_discount')->index()->default(null)->nullable()->comment('comment');
             $table->decimal('discount')->index()->default(null)->nullable()->comment('comment');
+            $table->text('thumbnail_uri')->default(null)->nullable()->comment('uniform resource identifier');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });

@@ -21,7 +21,6 @@ class CreateEventCategoriesTable extends Migration
             $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
             $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
             $table->morphs('categorizable');
-            $table->string('name')->index()->default(null)->nullable()->comment('comment');
             $table->unsignedBigInteger('category_id')->index()->default(null)->nullable()->comment('comment');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
