@@ -41,6 +41,8 @@ class CreateUsersTable extends Migration
             $table->text('image_uri')->default(null)->nullable()->comment('uniform resource identifier');
             $table->text('stripe_public_key')->default(null)->nullable()->comment('comment');
             $table->text('stripe_secret_key')->default(null)->nullable()->comment('comment');
+            //$table->string('username')->index()->unique()->comment('comment');
+            $table->string('display_name')->index()->default(null)->nullable()->comment('comment');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });

@@ -6,15 +6,15 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                @if( (isset($auth_user)) && ($auth_user->thumbnailphoto) )
-                    <img src="data:image/jpeg;base64, {!! base64_encode( $auth_user->thumbnailphoto ) !!}" class="img-circle" alt="User Image"/>
+                @if( (isset($authUser)) && ($authUser->image_uri) )
+                    <img src="{!! $authUser->image_uri !!}" class="img-circle" alt="User Image"/>
                 @else
                     <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="img-circle" alt="User Image"/>
                 @endif
             </div>
             <div class="pull-left info">
-                @isset($auth_user)
-                    <p> {{ $auth_user->mail }} </p>
+                @isset($authUser)
+                    <p> {!! $authUser->email !!} </p>
                 @endisset
                 <!-- p>user</p -->
                 <!-- Status -->

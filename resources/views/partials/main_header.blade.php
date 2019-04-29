@@ -1,12 +1,12 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <!-- {{ url('/') }} -->
+    <!-- {!! url('/') !!} -->
     <a href="{!! route('home') !!}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>F</b>ME</span>
+        <span class="logo-mini"><b>AIE</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Follow </b>ME</span>
+        <span class="logo-lg"><b>AIE</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -35,34 +35,30 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        @if( (isset($auth_user)) && ($auth_user->thumbnailphoto) )
-                            <img src="data:image/jpeg;base64, {!! base64_encode( $auth_user->thumbnailphoto ) !!}" class="user-image" alt="User Image"/>
+                        @if( (isset($authUser)) && ($authUser->image_uri) )
+                            <img src="{!! $authUser->image_uri !!}" class="user-image" alt="User Image"/>
                         @else
                             <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="user-image" alt="User Image"/>
                         @endif
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">
-                            @isset($auth_user)
-                                {{ $auth_user->mail }}
+                            @isset($authUser)
+                                {!! $authUser->email !!}
                             @endisset
                         </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            @if( (isset($auth_user)) && ($auth_user->thumbnailphoto) )
-                                <img src="data:image/jpeg;base64, {!! base64_encode( $auth_user->thumbnailphoto ) !!}" class="img-circle" alt="User Image"/>
+                            @if( (isset($authUser)) && ($authUser->image_uri) )
+                                <img src="{!! $authUser->image_uri !!}" class="img-circle" alt="User Image"/>
                             @else
                                 <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="img-circle" alt="User Image"/>
                             @endif
 
                             <p>
-                            @isset($auth_user)
-                                {{ $auth_user->displayname }}
-                                @isset($auth_user->description)
-                                    - {{ $auth_user->description }}
-                                @endisset
-                                <small>{{ $auth_user->mail }}</small>
+                            @isset($authUser)
+                                {{ $authUser->display_name }}
                             @endisset
                             </p>
                         </li>

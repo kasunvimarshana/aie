@@ -3,21 +3,39 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{!! str_replace('_', '-', app()->getLocale()) !!}">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <title>{{ config('app.name', 'Title') }}</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-    @section('section_stylesheet')
+    <!-- main meta data -->
+    @section('section_main_meta')
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{!! csrf_token() !!}"/>
+        <title>{{ config('app.name', 'Title') }}</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    @show
+    <!-- ./main meta data -->
+    <!-- meta data stack -->
+    @stack('stack_meta')
+    <!-- ./meta data stack -->
+    <!-- main stylesheed -->
+    @section('section_main_stylesheet')
         @includeIf('partials.main_stylesheet', array())
     @show
-    @section('section_script_main')
+    <!-- ./main stylesheet -->
+    <!-- optional stylesheet -->
+    @section('section_optional_stylesheet')
+    @show
+    <!-- ./optional stylesheet -->
+    <!-- optional stylesheet stack -->
+    @stack('stack_optional_stylesheet')
+    <!-- ./optional stylesheet stack -->
+    <!-- main script -->
+    @section('section_main_script')
         @includeIf('partials.main_script', array())
     @show
+    <!-- ./main script -->
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -43,9 +61,9 @@ desired effect
 <div class="wrapper">
 
   <!-- Main Header -->
-  @section('main_header')
-    @includeIf('partials.main_header', array())
-  @show
+    @section('main_header')
+        @includeIf('partials.main_header', array())
+    @show
   <!-- ./main-header -->
     
   <!-- Left side column. contains the logo and sidebar -->
@@ -97,23 +115,27 @@ desired effect
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
-@section('section_script')
-    <script src="{{ asset('node_modules/sweetalert/dist/sweetalert.min.js') }}"></script>
+<!-- optional script -->
+@section('section_optional_script')
+    <script src="{!! asset('node_modules/sweetalert/dist/sweetalert.min.js') !!}"></script>
+    @if (notify()->ready())
+        <script>
+            swal({
+                title: "{!! notify()->message() !!}",
+                text: "{!! notify()->option('text') !!}",
+                type: "{!! notify()->type() !!}",
+                @if (notify()->option('timer'))
+                    timer: {!! notify()->option('timer') !!},
+                    showConfirmButton: false
+                @endif
+            });
+        </script>
+    @endif
 @show
-    
-@if (notify()->ready())
-    <script>
-        swal({
-            title: "{!! notify()->message() !!}",
-            text: "{!! notify()->option('text') !!}",
-            type: "{{ notify()->type() }}",
-            @if (notify()->option('timer'))
-                timer: {{ notify()->option('timer') }},
-                showConfirmButton: false
-            @endif
-        });
-    </script>
-@endif
+<!-- ./optional script -->
+<!-- optional script stack -->
+@stack('stack_optional_script')
+<!-- ./optional script stack -->
 <!-- REQUIRED JS SCRIPTS -->
 
 
