@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class source_types extends Model
+class Categorizable extends Model
 {
     //
     // table name
-    protected $table = "source_types";
+    protected $table = "categorizables";
     // primary key
     protected $primaryKey = 'id';
     // attributes
@@ -18,7 +18,7 @@ class source_types extends Model
      *
      * @var array
      */
-    protected $fillable = array('is_visible', 'status_id', 'name', 'icon_uri');
+    protected $fillable = array('is_visible', 'status_id', 'categorizable_type', 'categorizable_id', 'category_id');
 
     /**
      * The attributes that should be hidden for arrays.
@@ -39,8 +39,13 @@ class source_types extends Model
         return $this->belongsTo('App\Status', 'status_id', 'id');
     }
     
-    //one to many
-    public function resourceables(){
-        return $this->hasMany('App\Resourceable', 'source_type_id', 'id');
+    //one to many (inverse)
+    public function categorizable(){
+        return $this->morphTo();
+    }
+    
+    //one to many (inverse)
+    public function category(){
+        return $this->belongsTo('App\Category', 'category_id', 'id');
     }
 }

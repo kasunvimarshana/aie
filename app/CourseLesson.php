@@ -33,4 +33,26 @@ class CourseLesson extends Model
      * @var array
      */
     //protected $casts = array();
+    
+    //one to many (inverse)
+    public function status(){
+        return $this->belongsTo('App\Status', 'status_id', 'id');
+    }
+    
+    //one to many through(inverse)
+    public function course(){
+        return $this->hasOneThrough(
+            'App\Course',
+            'App\CourseSection',
+            'section_id ',
+            'course_id ',
+            'id',//this table's primary key
+            'id'//other table's primary key
+        );
+    }
+    
+    //one to many (inverse)
+    public function courseSection(){
+        return $this->belongsTo('App\CourseSection', 'section_id', 'id');
+    }
 }

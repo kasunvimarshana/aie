@@ -33,4 +33,19 @@ class CourseSection extends Model
      * @var array
      */
     //protected $casts = array();
+    
+    //one to many (inverse)
+    public function status(){
+        return $this->belongsTo('App\Status', 'status_id', 'id');
+    }
+    
+    //one to many (inverse)
+    public function course(){
+        return $this->belongsTo('App\Course', 'course_id', 'id');
+    }
+    
+    //one to many
+    public function courseLessons(){
+        return $this->hasMany('App\CourseLesson', 'section_id', 'id');
+    }
 }

@@ -33,4 +33,73 @@ class Course extends Model
      * @var array
      */
     //protected $casts = array();
+    
+    //one to many (inverse)
+    public function status(){
+        return $this->belongsTo('App\Status', 'status_id', 'id');
+    }
+    
+    //one to one (morph)
+    public function publishable(){
+        return $this->morphOne('App\Publishable', 'publishable');
+    }
+    
+    //one to many (morph)
+    public function categorizables(){
+        return $this->morphMany('App\Categorizable', 'categorizable');
+    }
+    
+    //many to many through (morph)
+    public function categories(){
+        return $this->morphToMany(
+            'App\Category',
+            'categorizable',
+            'categorizables',
+            'category_id',
+            'categorizable_id'
+        );
+    }
+    
+    //one to many (morph)
+    public function outcomeable(){
+        return $this->morphMany('App\Outcomeable', 'outcomeable');
+    }
+    
+    //one to many (morph)
+    public function requirementable(){
+        return $this->morphMany('App\Requirementable', 'requirementable');
+    }
+    
+    //one to many (morph)
+    public function likeables(){
+        return $this->morphMany('App\Likeable', 'likeable');
+    }
+    
+    //one to many (morph)
+    public function watchables(){
+        return $this->morphMany('App\Watchable', 'watchable');
+    }
+    
+    //one to many (morph)
+    public function wishables(){
+        return $this->morphMany('App\Wishable', 'wishable');
+    }
+    
+    //one to many
+    public function courseSections(){
+        return $this->hasMany('App\CourseSection', 'course_id', 'id');
+    }
+    
+    //one to many through
+    public function courseLessons(){
+        return $this->hasManyThrough(
+            'App\CourseLesson',
+            'App\CourseSection',
+            'course_id',
+            'section_id',
+            'id',//this table's primary key
+            'id'//other table's primary key
+        );
+    }
+    
 }

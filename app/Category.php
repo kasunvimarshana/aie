@@ -33,4 +33,25 @@ class Category extends Model
      * @var array
      */
     //protected $casts = array();
+    
+    //one to many (inverse)
+    public function status(){
+        return $this->belongsTo('App\Status', 'status_id', 'id');
+    }
+    
+    //one to many
+    public function categorizables(){
+        return $this->hasMany('App\Categorizable', 'category_id', 'id');
+    }
+    
+    //meny to meny through (inverse)
+    public function courses(){
+        return $this->morphedByMany(
+            'App\Course', 
+            'categorizable', 
+            'categorizables', 
+            'category_id', 
+            'categorizable_id'
+        );
+    }
 }
