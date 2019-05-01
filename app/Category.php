@@ -50,7 +50,7 @@ class Category extends Model
             'App\Course', 
             'categorizable', 
             'categorizables', 
-            'category_id', 
+            'category_id',
             'categorizable_id'
         );
     }

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
 
@@ -19,4 +19,6 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::get('/admin', function() {
         return 'Welcome Admin';
     });
-});
+});*/
+
+Route::get('/', array('uses' => 'TestController@index'))->name('home.index');

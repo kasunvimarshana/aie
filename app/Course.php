@@ -55,8 +55,8 @@ class Course extends Model
             'App\Category',
             'categorizable',
             'categorizables',
-            'category_id',
-            'categorizable_id'
+            'categorizable_id',
+            'category_id'
         );
     }
     
