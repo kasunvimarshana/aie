@@ -16,6 +16,15 @@ class CreatePurchasablesTable extends Migration
         Schema::create('purchasables', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            
+            //$table->softDeletes();
+            $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
+            $table->morphs('purchasable');
+            $table->unsignedBigInteger('purchased_user_id')->index()->default(null)->nullable()->comment('comment');
+            
+            //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
+            //$table->foreign('purchased_user_id')->references('id')->on('users')->onUpdate('cascade');
         });
     }
 

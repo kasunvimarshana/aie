@@ -40,6 +40,11 @@ class Watchable extends Model
     }
     
     //one to many (inverse)
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+    
+    //one to many (inverse)
     public function watchable(){
         return $this->morphTo();
     }

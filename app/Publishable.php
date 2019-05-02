@@ -40,6 +40,11 @@ class Publishable extends Model
     }
     
     //one to many (inverse)
+    public function publishedUser(){
+        return $this->belongsTo('App\User', 'published_user_id', 'id');
+    }
+    
+    //one to many (inverse)
     public function publishable(){
         return $this->morphTo();
     }

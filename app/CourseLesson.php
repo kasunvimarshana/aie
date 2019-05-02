@@ -51,6 +51,17 @@ class CourseLesson extends Model
         );
     }
     
+    //many to many through (morph)
+    public function sourceTypes(){
+        return $this->morphToMany(
+            'App\SourceType',
+            'resourceable',
+            'resourceables',
+            'resourceable_id',
+            'source_type_id'
+        );
+    }
+    
     //one to many (inverse)
     public function courseSection(){
         return $this->belongsTo('App\CourseSection', 'section_id', 'id');

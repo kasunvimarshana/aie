@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class source_types extends Model
+class SourceType extends Model
 {
     //
     // table name
@@ -43,4 +43,16 @@ class source_types extends Model
     public function resourceables(){
         return $this->hasMany('App\Resourceable', 'source_type_id', 'id');
     }
+    
+    //meny to meny through (inverse)
+    public function courseLessons(){
+        return $this->morphedByMany(
+            'App\CourseLesson', 
+            'resourceable', 
+            'resourceables', 
+            'source_type_id',
+            'resourceable_id'
+        );
+    }
+    
 }

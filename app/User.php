@@ -41,4 +41,101 @@ class User extends Authenticatable
     public function status(){
         return $this->belongsTo('App\Status', 'status_id', 'id');
     }
+    
+    //one to many
+    public function likeables(){
+        return $this->hasMany('App\Likeable', 'user_id', 'id');
+    }
+    
+    //one to many
+    public function publishables(){
+        return $this->hasMany('App\Publishable', 'published_user_id', 'id');
+    }
+    
+    //one to many
+    public function purchasables(){
+        return $this->hasMany('App\Purchasable', 'purchased_user_id', 'id');
+    }
+    
+    //one to many
+    public function resourceables(){
+        return $this->hasMany('App\Resourceable', 'user_id', 'id');
+    }
+    
+    //one to many
+    public function watchables(){
+        return $this->hasMany('App\Watchable', 'user_id', 'id');
+    }
+    
+    //one to many
+    public function wishables(){
+        return $this->hasMany('App\Wishable', 'user_id', 'id');
+    }
+    
+    //meny to meny through (inverse)
+    public function likeableCourses(){
+        return $this->morphedByMany(
+            'App\Course', 
+            'likeable', 
+            'likeables', 
+            'user_id',
+            'likeable_id'
+        );
+    }
+    
+    //meny to meny through (inverse)
+    public function publishableCourses(){
+        return $this->morphedByMany(
+            'App\Course', 
+            'publishable', 
+            'publishables', 
+            'published_user_id',
+            'publishable_id'
+        );
+    }
+    
+    //meny to meny through (inverse)
+    public function publishableCourses(){
+        return $this->morphedByMany(
+            'App\Purchasable', 
+            'purchasable', 
+            'purchasables', 
+            'purchased_user_id',
+            'purchasable_id'
+        );
+    }
+    
+    //meny to meny through (inverse)
+    public function resourceableCourses(){
+        return $this->morphedByMany(
+            'App\Resourceable', 
+            'resourceable', 
+            'resourceables', 
+            'user_id',
+            'resourceable_id'
+        );
+    }
+    
+    //meny to meny through (inverse)
+    public function watchableCourses(){
+        return $this->morphedByMany(
+            'App\Watchable', 
+            'watchable', 
+            'watchables', 
+            'user_id',
+            'watchable_id'
+        );
+    }
+    
+    //meny to meny through (inverse)
+    public function wishableCourses(){
+        return $this->morphedByMany(
+            'App\Wishable', 
+            'wishable', 
+            'wishables', 
+            'user_id',
+            'wishable_id'
+        );
+    }
+    
 }

@@ -61,12 +61,12 @@ class Course extends Model
     }
     
     //one to many (morph)
-    public function outcomeable(){
+    public function outcomeables(){
         return $this->morphMany('App\Outcomeable', 'outcomeable');
     }
     
     //one to many (morph)
-    public function requirementable(){
+    public function requirementables(){
         return $this->morphMany('App\Requirementable', 'requirementable');
     }
     
@@ -99,6 +99,17 @@ class Course extends Model
             'section_id',
             'id',//this table's primary key
             'id'//other table's primary key
+        );
+    }
+    
+    //many to many through (morph)
+    public function likeableUsers(){
+        return $this->morphToMany(
+            'App\User',
+            'likeable',
+            'likeables',
+            'likeable_id',
+            'user_id'
         );
     }
     
