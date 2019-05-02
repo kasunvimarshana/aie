@@ -13,6 +13,8 @@ class TestController extends Controller
         $course = new \App\Course();
         
         ///////////////////////////////////////////////////////////
+        $user = \App\User::find(1);
+        $course = \App\Course::find(7);
         
         $newCategory = $category->create(array(
             'name' => 'cat name ' . rand()
@@ -24,6 +26,10 @@ class TestController extends Controller
         
         $newCategorizable = $newCourse->categorizables()->create(array(
             'category_id' => $newCategory->id,
+        ));
+        
+        $newLikeable = $newCourse->likeables()->create(array(
+            'user_id' => $user->id
         ));
         ///////////////////////////////////////////////////////////
         echo "<pre>";
@@ -42,6 +48,16 @@ class TestController extends Controller
         }
         foreach($newCategory->courses as $cou){
             echo "cou = " . $cou->id;
+            echo "<br/>";
+        }
+        foreach($user->likeableCourses as $cou){
+            //echo "cou like = " . $cou->id;
+            echo "cou like = " . $cou->title;
+            echo "<br/>";
+        }
+        foreach($course->likeableUsers as $use){
+            echo "use like = " . $use->id;
+            //echo "cou like = " . $cou->title;
             echo "<br/>";
         }
         echo "</pre>";

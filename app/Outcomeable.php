@@ -41,6 +41,6 @@ class Outcomeable extends Model
     
     //one to many (inverse)
     public function outcomeable(){
-        return $this->morphTo();
+        return $this->morphTo('outcomeable', 'outcomeable_type', 'outcomeable_id');
     }
 }

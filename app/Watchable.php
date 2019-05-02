@@ -46,6 +46,6 @@ class Watchable extends Model
     
     //one to many (inverse)
     public function watchable(){
-        return $this->morphTo();
+        return $this->morphTo('watchable', 'watchable_type', 'watchable_id');
     }
 }

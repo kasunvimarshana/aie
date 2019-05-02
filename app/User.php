@@ -95,7 +95,7 @@ class User extends Authenticatable
     }
     
     //meny to meny through (inverse)
-    public function publishableCourses(){
+    public function purchasableCourses(){
         return $this->morphedByMany(
             'App\Purchasable', 
             'purchasable', 

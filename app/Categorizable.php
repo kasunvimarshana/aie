@@ -41,7 +41,7 @@ class Categorizable extends Model
     
     //one to many (inverse)
     public function categorizable(){
-        return $this->morphTo();
+        return $this->morphTo('categorizable', 'categorizable_type', 'categorizable_id');
     }
     
     //one to many (inverse)

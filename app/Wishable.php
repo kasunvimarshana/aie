@@ -46,6 +46,6 @@ class Wishable extends Model
     
     //one to many (inverse)
     public function wishable(){
-        return $this->morphTo();
+        return $this->morphTo('wishable', 'wishable_type', 'wishable_id');
     }
 }

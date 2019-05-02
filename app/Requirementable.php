@@ -41,6 +41,6 @@ class Requirementable extends Model
     
     //one to many (inverse)
     public function requirementable(){
-        return $this->morphTo();
+        return $this->morphTo('requirementable', 'requirementable_type', 'requirementable_id');
     }
 }

@@ -41,6 +41,6 @@ class Searchable extends Model
     
     //one to many (inverse)
     public function searchable(){
-        return $this->morphTo();
+        return $this->morphTo('searchable', 'searchable_type', 'searchable_id');
     }
 }

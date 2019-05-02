@@ -46,7 +46,7 @@ class Publishable extends Model
     
     //one to many (inverse)
     public function publishable(){
-        return $this->morphTo();
+        return $this->morphTo('publishable', 'publishable_type', 'publishable_id');
     }
     
 }

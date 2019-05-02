@@ -46,6 +46,7 @@ class Likeable extends Model
     
     //one to many (inverse)
     public function likeable(){
-        return $this->morphTo();
+        return $this->morphTo('likeable', 'likeable_type', 'likeable_id');
     }
+    
 }

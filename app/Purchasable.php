@@ -46,6 +46,6 @@ class Purchasable extends Model
     
     //one to many (inverse)
     public function purchasable(){
-        return $this->morphTo();
+        return $this->morphTo('purchasable', 'purchasable_type', 'purchasable_id');
     }
 }

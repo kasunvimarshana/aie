@@ -41,6 +41,6 @@ class Resourceable extends Model
     
     //one to many (inverse)
     public function resourceable(){
-        return $this->morphTo();
+        return $this->morphTo('resourceable', 'resourceable_type', 'resourceable_id');
     }
 }
