@@ -18,7 +18,7 @@ class CourseSection extends Model
      *
      * @var array
      */
-    protected $fillable = array('is_visible', 'status_id', 'title');
+    protected $fillable = array('is_visible', 'status_id', 'title', 'course_id', 'order');
 
     /**
      * The attributes that should be hidden for arrays.

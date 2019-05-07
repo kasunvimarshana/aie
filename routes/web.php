@@ -22,3 +22,4 @@ Route::group(['middleware' => 'role:admin'], function() {
 });*/
 
 Route::get('/', array('uses' => 'TestController@index'))->name('home.index');
+Route::get('/test', array('uses' => 'TestController@test'))->name('home.test');

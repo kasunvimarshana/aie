@@ -22,6 +22,7 @@ class CreateCourseSectionsTable extends Migration
             $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
             $table->text('title')->default(null)->nullable()->comment('comment');
             $table->unsignedBigInteger('course_id')->index()->default(null)->nullable()->comment('comment');
+            $table->unsignedBigInteger('order')->index()->default(0)->nullable()->comment('comment');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
             //$table->foreign('course_id')->references('courses')->on('statuses')->onUpdate('cascade');

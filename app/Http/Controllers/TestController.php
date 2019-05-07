@@ -13,8 +13,8 @@ class TestController extends Controller
         $course = new \App\Course();
         
         ///////////////////////////////////////////////////////////
-        $user = \App\User::find(1);
-        $course = \App\Course::find(7);
+        //$user = \App\User::find(1);
+        //$course = \App\Course::find(7);
         
         $newCategory = $category->create(array(
             'name' => 'cat name ' . rand()
@@ -61,5 +61,11 @@ class TestController extends Controller
             echo "<br/>";
         }
         echo "</pre>";
+    }
+    
+    public function test(){
+        if(view()->exists('admin.home')){
+            return \View::make('admin.home', array());
+        }
     }
 }

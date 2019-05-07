@@ -18,7 +18,7 @@ class CourseLesson extends Model
      *
      * @var array
      */
-    protected $fillable = array('is_visible', 'status_id', 'title', 'section_id', 'summary', 'thumbnail_uri');
+    protected $fillable = array('is_visible', 'status_id', 'title', 'section_id', 'summary', 'thumbnail_uri', 'order');
 
     /**
      * The attributes that should be hidden for arrays.

@@ -25,6 +25,7 @@ class CreateCourseLessonsTable extends Migration
             //$table->unsignedBigInteger('resource_id')->index()->default(null)->nullable()->comment('comment');
             $table->text('summary')->default(null)->nullable()->comment('comment');
             $table->text('thumbnail_uri')->default(null)->nullable()->comment('uniform resource identifier');
+            $table->unsignedBigInteger('order')->index()->default(0)->nullable()->comment('comment');
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
             //$table->foreign('section_id')->references('id')->on('course_sections')->onUpdate('cascade');
