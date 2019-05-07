@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken()->comment('comment');
             $table->timestamps();
             $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
+            $table->boolean('is_active')->index()->default(null)->nullable()->comment('comment');
             $table->unsignedBigInteger('status_id')->index()->default(null)->nullable()->comment('comment');
             //$table->softDeletes();
             $table->text('facebook_link')->default(null)->nullable()->comment('comment');

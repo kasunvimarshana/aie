@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Other
+        // provider for App\Providers\PermissionsServiceProvider
+        App\Providers\PermissionsServiceProvider::class,
         // provider for flash message
         Codecourse\Notify\NotifyServiceProvider::class,
         // provider for chumper\zipper
@@ -228,6 +231,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // Other
         //alias for flash message
         'Notify' => Codecourse\Notify\Facades\Notify::class,
         //alias for chumper\zipper

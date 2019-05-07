@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use App\Permission;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Blade;
 
 class PermissionsServiceProvider extends ServiceProvider
 {
