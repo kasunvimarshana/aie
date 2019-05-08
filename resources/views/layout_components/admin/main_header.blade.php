@@ -2,7 +2,7 @@
 
     <!-- Logo -->
     <!-- {!! url('/') !!} -->
-    <a href="{!! route('home.index') !!}" class="logo">
+    <a href="{!! route('home.showDashboard') !!}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>AIE</b></span>
         <!-- logo for regular state and mobile devices -->
@@ -74,7 +74,7 @@
                                 <!-- a href="#" class="btn btn-info btn-flat">Profile</a -->
                             </div>
                             <div class="pull-right">
-                                <a href="{!! route('home.index') !!}" class="btn btn-info btn-flat">Sign out</a>
+                                <a href="{!! route('home.showDashboard') !!}" class="btn btn-info btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

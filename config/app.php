@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // Other
+        // provider for App\Providers\AuthUserProvider
+        App\Providers\AuthUserProvider::class,
         // provider for App\Providers\PermissionsServiceProvider
         App\Providers\PermissionsServiceProvider::class,
         // provider for flash message

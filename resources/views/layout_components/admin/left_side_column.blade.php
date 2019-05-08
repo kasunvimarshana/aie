@@ -30,7 +30,7 @@
             
             <!-- li class="header">ACTIVITIES</li -->
             <!-- Optionally, you can add icons to the links -->
-            <!-- li class="{!! set_active(['home/']) !!}"><a href="{!! route('home.index') !!}"><i class="fa fa-edit"></i> <span>Home</span></a></li -->
+            <!-- li class="{!! set_active(['home/']) !!}"><a href="{!! route('home.showDashboard') !!}"><i class="fa fa-edit"></i> <span>Home</span></a></li -->
             <li class="header">ACTIVITIES</li>
             <li class="treeview {!! set_active(['home', 'home/*']) !!}">
                 <a href="#">
@@ -40,9 +40,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{!! set_active(['home/tws/create', 'home/tws/create/*']) !!}"><a href="{!! route('home.index') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Create New</a></li>
-                    <li class="{!! set_active(['home/tws/show-created-tws', 'home/tws/show-created-tws/*']) !!}"><a href="{!! route('home.index') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Assigned To Others</a></li>
-                    <li class="{!! set_active(['home/tws/show-owne-tws', 'home/tws/show-owne-tws/*']) !!}"><a href="{!! route('home.index') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Assigned To Me</a></li>
+                    <li class="{!! set_active(['home/tws/create', 'home/tws/create/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Create New</a></li>
+                    <li class="{!! set_active(['home/tws/show-created-tws', 'home/tws/show-created-tws/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Assigned To Others</a></li>
+                    <li class="{!! set_active(['home/tws/show-owne-tws', 'home/tws/show-owne-tws/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Assigned To Me</a></li>
                 </ul>
             </li>
             
