@@ -19,6 +19,8 @@
         "maatwebsite/excel": "^3.1",
         "pawlox/video-thumbnail": "^1.0",
         "php-ffmpeg/php-ffmpeg": "^0.14.0",
+        "phpoffice/phpexcel": "^1.8",
+        "phpoffice/phpspreadsheet": "^1.6",
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "^3.4",
         "spatie/flysystem-dropbox": "^1.0",

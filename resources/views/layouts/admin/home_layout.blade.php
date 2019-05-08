@@ -14,6 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <title>{{ config('app.name', 'Title') }}</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+        <!-- {!! csrf_field() !!} || {!! Session::token() !!} || {!! csrf_token() !!} || @csrf -->
     @show
     <!-- ./main meta data -->
     <!-- meta data stack -->

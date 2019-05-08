@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
-use \Auth;
-use \Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 
 class LoginController extends Controller
 {
@@ -62,6 +62,7 @@ class LoginController extends Controller
     }
     
     public function doLogout(){
+        Auth::logout();
         return redirect()->route('login.showLogin');
     }
  
