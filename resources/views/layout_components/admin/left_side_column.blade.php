@@ -18,7 +18,7 @@
                 @endisset
                 <!-- p>user</p -->
                 <!-- Status -->
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href="{!! url()->current() !!}"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
 
@@ -30,19 +30,44 @@
             
             <!-- li class="header">ACTIVITIES</li -->
             <!-- Optionally, you can add icons to the links -->
-            <!-- li class="{!! set_active(['home/']) !!}"><a href="{!! route('home.showDashboard') !!}"><i class="fa fa-edit"></i> <span>Home</span></a></li -->
+            <!-- li class="{!! set_active(['home/']) !!}"><a href="{!! url()->current() !!}"><i class="fa fa-edit"></i> <span>Home</span></a></li -->
             <li class="header">ACTIVITIES</li>
-            <li class="treeview {!! set_active(['home', 'home/*']) !!}">
+            <!-- li class="header">VIEW FRONTEND</li -->
+            <li class="{!! set_active(['home/*']) !!}"><a href="{!! url()->current() !!}"><i class="fa fa-edit"></i> <span>VIEW FRONTEND</span></a></li>
+            <li class="treeview {!! set_active(['users', 'users/*']) !!}">
                 <a href="#">
-                    <i class="fa fa-edit"></i> <span>3W</span>
+                    <i class="fa fa-edit"></i> <span>USER</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{!! set_active(['home/tws/create', 'home/tws/create/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Create New</a></li>
-                    <li class="{!! set_active(['home/tws/show-created-tws', 'home/tws/show-created-tws/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Assigned To Others</a></li>
-                    <li class="{!! set_active(['home/tws/show-owne-tws', 'home/tws/show-owne-tws/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> Assigned To Me</a></li>
+                    <li class="{!! set_active(['users/create', 'users/create/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> CREATE NEW</a></li>
+                    <li class="{!! set_active(['users/show', 'users/show/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> SHOW ALL</a></li>
+                </ul>
+            </li>
+            <li class="treeview {!! set_active(['categories', 'categories/*']) !!}">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>CATEGORY</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{!! set_active(['categories/create', 'categories/create/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> CREATE NEW</a></li>
+                    <li class="{!! set_active(['categories/show', 'categories/show/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> SHOW ALL</a></li>
+                </ul>
+            </li>
+            <li class="treeview {!! set_active(['courses', 'courses/*']) !!}">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>COURSE</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{!! set_active(['courses/create', 'courses/create/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> CREATE NEW</a></li>
+                    <li class="{!! set_active(['courses/show', 'courses/show/*']) !!}"><a href="{!! route('home.showDashboard') !!}"> <i class="fa fa-arrow-circle-o-right"></i> SHOW ALL</a></li>
                 </ul>
             </li>
             

@@ -17,12 +17,20 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', array('uses' => 'LoginController@showLogin'))->name('login.showLogin');
+Route::get('/login', array('uses' => 'LoginController@showLogin'))->name('login.showLogin');
+Route::post('/login', array('uses' => 'LoginController@doLogin'))->name('login.doLogin');
+Route::match(['get', 'post'], '/logout', array('uses' => 'LoginController@doLogout'))->name('login.doLogout');
 
 Route::group(['middleware' => 'memberMiddleware'], function(){
-   
-    Route::group(['middleware' => 'role:super-user'], function(){});
     
     Route::get('/home', array('uses' => 'HomeController@showDashboard'))->name('home.showDashboard');
     
 });
+
+/*
+Route::group(['middleware' => 'memberMiddleware'], function(){
+   
+    Route::group(['middleware' => 'role:super-user'], function(){});
+    
+});
+*/

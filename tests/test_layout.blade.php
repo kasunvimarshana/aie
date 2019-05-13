@@ -15,9 +15,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
         <!-- {!! csrf_field() !!} || {!! Session::token() !!} || {!! csrf_token() !!} || @csrf -->
+        <!-- {!! Route::current()->getName() !!} -->
+        <!-- {!! Route::currentRouteName() !!} -->
+        <!-- {!! Route::getFacadeRoot()->current()->uri() !!} -->
+        <!-- {!! Route::getCurrentRoute()->getActionName() !!} -->
+        <!-- {!! Request::url() !!} -->
+        <!-- {!! Request::path() !!} -->
+        <!-- {!! url('/') !!} -->
         <!-- {!! url()->current() !!} -->
         <!-- {!! url()->full() !!} -->
         <!-- {!! url()->previous() !!} -->
+        <!-- {!! request()->route()->getName() !!} -->
+        <!-- {!! request()->is('home/*') !!} -->
+        <!-- {!! $router = app()->make('router')->getCurrentRoute()->uri !!} -->
+        <!-- {!! request()->route()->getName() !!} -->
+    
+        <!-- {!! 'https://laravel.com/docs/5.8/helpers' !!} -->
+        <!-- {!! $path = app_path() !!} -->
+        <!-- {!! $path = base_path() !!} -->
+        <!-- {!! $path = config_path() !!} -->
+        <!-- {!! $path = config_path() !!} -->
+        <!-- {!! config_path('app.php') !!} -->
+        <!-- {!! $path = database_path() !!} -->
+        <!-- {!! $path = public_path() !!} -->
+        <!-- {!! $path = storage_path() !!} -->
+        <!-- {!! $url = secure_url('user/profile') !!} -->
+        <!-- {!! $url = secure_url('user/profile', [1]) !!} -->
+        <!-- {!! $url = secure_url('user/profile', [1]) !!} -->
     @show
     <!-- ./main meta data -->
     <!-- meta data stack -->

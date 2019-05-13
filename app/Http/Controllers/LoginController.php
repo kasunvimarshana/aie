@@ -51,7 +51,7 @@ class LoginController extends Controller
             );
             
             Auth::attempt($credentials);
-                
+            
             if( auth()->check() ){
                 return redirect()->route('home.showDashboard');
             }else{

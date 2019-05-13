@@ -1,7 +1,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <!-- {!! url('/') !!} -->
+    <!-- {!! url()->current() !!} -->
     <a href="{!! route('home.showDashboard') !!}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>AIE</b></span>
@@ -71,10 +71,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <!-- a href="#" class="btn btn-info btn-flat">Profile</a -->
+                                <!-- a href="{!! url()->current() !!}" class="btn btn-info btn-flat">Profile</a -->
                             </div>
                             <div class="pull-right">
-                                <a href="{!! route('home.showDashboard') !!}" class="btn btn-info btn-flat">Sign out</a>
+                                <a href="{!! route('login.doLogout') !!}" class="btn btn-info btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

@@ -15,6 +15,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
         <!-- {!! csrf_field() !!} || {!! Session::token() !!} || {!! csrf_token() !!} || @csrf -->
+        <!-- {!! url()->current() !!} -->
+        <!-- {!! url()->full() !!} -->
+        <!-- {!! url()->previous() !!} -->
     @show
     <!-- ./main meta data -->
     <!-- meta data stack -->
@@ -29,6 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @section('section_optional_stylesheet')
         <!-- iCheck -->
         <link rel="stylesheet" href="{!! asset('node_modules/admin-lte/plugins/iCheck/square/blue.css') !!}"/>
+        <link rel="stylesheet" href="{!! asset('css/custom_style_login.css') !!}"/>
     @show
     <!-- ./optional stylesheet -->
     <!-- optional stylesheet stack -->
@@ -41,22 +45,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./main script -->
 </head>
 <body class="hold-transition login-page">
-    <div id="particles-js"></div>
+<div id="particles-js"></div>
 <div class="login-box">
   <div class="login-logo">
-    <!-- a href="{{ url('/') }}"><b>Follow </b>Me</a -->
-    <a class="logo-link" href="{!! url('/') !!}">
-        <img class="img img-responsive logo-img" src="{!! asset('img/logo_1.png') !!}"/>
-        <!-- p style="color: white;"> Event Tracker </p -->
-        <p class="logo-text"> Event Tracker </p>
-    </a>
+    <!-- a href="{!! url('/') !!}"><b>Title</b></a -->
+    <!-- a href="{!! url()->current() !!}"><b>Title</b></a -->
+    <!-- a href="{!! Route::current()->getName() !!}"><b>Title</b></a -->
+    <!-- a href="{!! Request::url() !!}"><b>Title</b></a -->
+    <a href="{!! url()->current() !!}"><b>AIE</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <!-- p class="login-box-msg">Sign in to start your session</p -->
+    <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="{{ url('/') }}" method="POST" autocomplete="off">
-      <!-- {{ csrf_field() }} || {{ Session::token() }} -->
+    <form action="{!! route('login.doLogin') !!}" method="POST" autocomplete="off">
+      <!-- {!! csrf_field() !!} || {!! Session::token() !!} -->
       @csrf
       <div class="form-group has-feedback">
         <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autocomplete="off"/>
@@ -87,8 +90,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div -->
     <!-- /.social-auth-links -->
 
-    <!-- a href="{{ url('/') }}">I forgot my password</a><br -->
-    <!-- a href="{{ url('/') }}" class="text-center">Register a new membership</a -->
+    <!-- a href="{!! url()->current() !!}">I forgot my password</a><br -->
+    <!-- a href="{!! url()->current() !!}" class="text-center">Register a new membership</a -->
 
   </div>
   <!-- /.login-box-body -->
@@ -96,127 +99,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- /.login-box -->
 
 <!-- REQUIRED JS SCRIPTS -->
+@section('section_optional_script')
+    @includeIf('partials.admin.login_script', array())
+@show
 <!-- REQUIRED JS SCRIPTS -->
-<!-- iCheck -->
-<!-- script src="{{ asset('node_modules/admin-lte/plugins/iCheck/icheck.min.js') }}"></script -->
-<!-- script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script -->
-<!-- Particle-js -->
-<script src="{{ asset('node_modules/particles.js/particles.js') }}"></script>
-<script>
-// ParticlesJS Config.
-particlesJS("particles-js", {
-  "particles": {
-    "number": {
-      "value": 80,
-      "density": {
-        "enable": true,
-        "value_area": 700
-      }
-    },
-    "color": {
-      "value": "#ffffff"
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
-      },
-    },
-    "opacity": {
-      "value": 0.5,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 3,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 6,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "grab"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 140,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
-  },
-  "retina_detect": true
-}); 
-</script>
 </body>
 </html>
