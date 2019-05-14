@@ -7,9 +7,9 @@
         <div class="user-panel">
             <div class="pull-left image">
                 @if( (isset($authUser)) && ($authUser->image_uri) )
-                    <img src="{!! $authUser->image_uri !!}" class="img-circle" alt="User Image"/>
+                    <img src="{!! $authUser->image_uri !!}" class="img-circle lazy" alt="User Image"/>
                 @else
-                    <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="img-circle" alt="User Image"/>
+                    <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="img-circle lazy" alt="User Image"/>
                 @endif
             </div>
             <div class="pull-left info">

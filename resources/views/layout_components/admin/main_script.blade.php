@@ -21,5 +21,8 @@
 <script src="{!! asset('node_modules/jquery-easy-loading/dist/jquery.loading.min.js') !!}"></script>
 <!-- sweetalert -->
 <script src="{!! asset('node_modules/sweetalert/dist/sweetalert.min.js') !!}"></script>
+<!-- jquery lazy -->
+<script src="{!! asset('node_modules/jquery-lazy/jquery.lazy.min.js') !!}"></script>
+<script src="{!! asset('node_modules/jquery-lazy/jquery.lazy.plugins.min.js') !!}"></script>
 <!-- custom script -->
-<script src="{!! asset('js/custom_script.js') !!}"></script>
+<script type="text/javascript" type="text/javascript" src="{!! asset('js/custom_script.js') !!}"></script>

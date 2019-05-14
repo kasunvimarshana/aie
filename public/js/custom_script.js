@@ -39,3 +39,8 @@ $(function(){
     });
 });
 */
+
+//lazy load
+$(function() {
+    $('.lazy').Lazy();
+});

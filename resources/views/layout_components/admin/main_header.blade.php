@@ -36,9 +36,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
                         @if( (isset($authUser)) && ($authUser->image_uri) )
-                            <img src="{!! $authUser->image_uri !!}" class="user-image" alt="User Image"/>
+                            <img src="{!! $authUser->image_uri !!}" class="user-image lazy" alt="User Image"/>
                         @else
-                            <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="user-image" alt="User Image"/>
+                            <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="user-image lazy" alt="User Image"/>
                         @endif
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">
@@ -51,9 +51,9 @@
                         <!-- The user image in the menu -->
                         <li class="user-header">
                             @if( (isset($authUser)) && ($authUser->image_uri) )
-                                <img src="{!! $authUser->image_uri !!}" class="img-circle" alt="User Image"/>
+                                <img src="{!! $authUser->image_uri !!}" class="img-circle lazy" alt="User Image"/>
                             @else
-                                <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="img-circle" alt="User Image"/>
+                                <img src="{!! URL::asset('node_modules/admin-lte/dist/img/avatar5.png') !!}" class="img-circle lazy" alt="User Image"/>
                             @endif
 
                             <p>
