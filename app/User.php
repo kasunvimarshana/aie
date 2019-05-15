@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use App\Permissions\HasPermissionsTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use HasPermissionsTrait;
@@ -24,7 +24,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = array('name', 'email', 'email_verified_at', 'password', 'is_visible', 'is_active', 'status_id', 'facebook_link', 'twitter_link', 'linkedin_link', 'short_title', 'biography', 'dir_uri', 'image_uri', 'stripe_public_key', 'stripe_secret_key');
+    protected $fillable = array('name', 'email', 'email_verified_at', 'password', 'remember_token', 'is_visible', 'is_active', 'status_id', 'facebook_link', 'twitter_link', 'linkedin_link', 'short_title', 'biography', 'dir_uri', 'image_uri', 'stripe_public_key', 'stripe_secret_key');
 
     /**
      * The attributes that should be hidden for arrays.

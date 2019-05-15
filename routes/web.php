@@ -21,16 +21,20 @@ Route::get('/login', array('uses' => 'LoginController@showLogin'))->name('login.
 Route::post('/login', array('uses' => 'LoginController@doLogin'))->name('login.doLogin');
 Route::match(['get', 'post'], '/logout', array('uses' => 'LoginController@doLogout'))->name('login.doLogout');
 
-Route::group(['middleware' => 'memberMiddleware'], function(){
+Route::group(['middleware' => ['memberMiddleware']], function(){
     
     Route::get('/home', array('uses' => 'HomeController@showDashboard'))->name('home.showDashboard');
     
 });
 
 /*
-Route::group(['middleware' => 'memberMiddleware'], function(){
+Route::group(['middleware' => ['memberMiddleware']], function(){
    
-    Route::group(['middleware' => 'role:super-user'], function(){});
+    Route::group(['middleware' => ['role:super-user']], function(){});
     
 });
 */
+
+//Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+//Route::get('/test', 'UserController@register');
+//Route::get(‘/verifyemail/{token}’, ‘Auth\RegisterController@verify’);
