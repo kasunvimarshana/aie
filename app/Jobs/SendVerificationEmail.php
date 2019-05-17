@@ -37,13 +37,7 @@ class SendVerificationEmail implements ShouldQueue
     {
         //
         $user = $this->user;
-        $email = new EmailVerification($this->user);
-        //Mail::to($this->user->email)->send($email);
-        Mail::to('kasunvmail@gmail.com')->send(new EmailVerification($user));
-        
-        /*Mail::send($email, function ($m) use ($user) {
-            $m->from('kasunvmail@gmail.com', 'Your Application');
-            $m->to('kasunvmail@gmail.com', 'Kasun')->subject('Your Reminder!');
-        });*/
+        $email = new EmailVerification($user);
+        Mail::to($user->email)->send($email);
     }
 }

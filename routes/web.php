@@ -36,5 +36,5 @@ Route::group(['middleware' => ['memberMiddleware']], function(){
 */
 
 //Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
-//Route::get('/test', 'UserController@register');
+Route::get('/test', 'UserController@register');
 //Route::get(‘/verifyemail/{token}’, ‘Auth\RegisterController@verify’);

@@ -16,7 +16,7 @@ class UserController extends Controller
 {
     //
     protected function create(array $data){
-        return User::create([
+        return User::save([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -25,33 +25,21 @@ class UserController extends Controller
     }
     
     public function register(Request $request){
-        //$this->validator($request->all())->validate();
-        //event(new Registered($user = $this->create($request->all())));
         $data = array(
             'name' => 'test',
-            'email' => rand() . 'kasunvmail@gmail.com',
+            'email' => 'kasunvmail@gmail.com',
             'password' => Hash::make('password'),
             'is_visible' => false,
             'is_active' => false,
             'status_id' => null,
             'short_title' => 'Test User'
         );
-        //event(new Registered($user = $this->create($data)));
-        //dispatch(new SendVerificationEmail($user));
-        //return view('verification');
-        //return view('login');
-        ////////////////////////////////////////////////////////
+        
+        //$user = $this->create($data);
         $user = $this->create($data);
-        //new SendVerificationEmail($user);
-        /*Mail::send('email.email', ['remember_token' => $user->remember_token], function ($m) use ($user) {
-            $m->from('kasunvmail@gmail.com', 'Your Application');
-            $m->to('kasunvmail@gmail.com', 'Kasun')->subject('Your Reminder!');
-        });*/
-        //Mail::to('kasunvmail@gmail.com')->send(new EmailVerification($user));
-        $emailJob = (new SendVerificationEmail($user))->delay(Carbon::now()->addSeconds(3));
+        
+        $emailJob = (new SendVerificationEmail($user))->delay(Carbon::now()->addSeconds(10));
         dispatch($emailJob);
-        //dispatch(new SendVerificationEmail($user));
-        ////////////////////////////////////////////////////////
     }
     
     public function verify($token){

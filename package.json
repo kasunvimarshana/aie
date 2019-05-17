@@ -28,6 +28,10 @@
     },
     "dependencies": {
         "@argonjs/argon": "^1.4.0",
+        "@fullcalendar/core": "^4.1.0",
+        "@fullcalendar/daygrid": "^4.1.0",
+        "@fullcalendar/list": "^4.1.0",
+        "@fullcalendar/timegrid": "^4.1.0",
         "@shopify/draggable": "^1.0.0-beta.8",
         "@tensorflow/tfjs": "^1.1.2",
         "Respond.js": "git+https://github.com/scottjehl/Respond.git",
@@ -78,6 +82,7 @@
         "lazyload": "^2.0.0-rc.2",
         "lozad": "^1.9.0",
         "marzipano": "^0.9.0",
+        "mdbootstrap": "^4.8.1",
         "moment": "^2.24.0",
         "particles.js": "^2.0.0",
         "pdfmake": "^0.1.56",

@@ -31,21 +31,9 @@ class EmailVerification extends Mailable
     public function build()
     {
         //return $this->view('view.name');
-        /*
+        $user = $this->user;
         return $this->view('email.email')->with([
-            'remember_token' => $this->user->remember_token
+            'remember_token' => $user->remember_token
         ]);
-        */
-        
-        return $this->from('kasunvmail@gmail.com')
-            ->view('email.email')
-            //->text('email.email')
-            ->with(['remember_token' => $this->user->remember_token]);
-            /*
-            ->attach(public_path('/images').'/demo.jpg', [
-                'as' => 'demo.jpg',
-                'mime' => 'image/jpeg',
-            ])
-            */
     }
 }
