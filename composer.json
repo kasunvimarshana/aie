@@ -17,6 +17,7 @@
         "intervention/image": "^2.4",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "linq/php-linq": "^1.0",
         "maatwebsite/excel": "^3.1",
         "pawlox/video-thumbnail": "^1.0",
         "php-ffmpeg/php-ffmpeg": "^0.14.0",
