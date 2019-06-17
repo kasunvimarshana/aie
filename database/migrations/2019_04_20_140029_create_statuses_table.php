@@ -18,6 +18,7 @@ class CreateStatusesTable extends Migration
             $table->timestamps();
             
             $table->boolean('is_visible')->index()->default(null)->nullable()->comment('comment');
+            $table->boolean('is_active')->index()->default(null)->nullable()->comment('comment');
             $table->string('name')->index()->unique()->comment('comment');
             $table->text('icon_uri')->default(null)->nullable()->comment('uniform resource identifier')->charset('utf8')->change();
             //$table->softDeletes();

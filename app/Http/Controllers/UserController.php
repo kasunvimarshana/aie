@@ -16,7 +16,7 @@ class UserController extends Controller
 {
     //
     protected function create(array $data){
-        return User::save([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
